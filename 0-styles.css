@@ -1,0 +1,264 @@
+:root {
+    --primary-font: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    --links-action-color: #FF6565;
+    --button-action-opacity: 0.9;
+    --color-white: #FFFFFF;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+body {
+    font-size: .9rem;
+    font-family: var(--primary-font);
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hero {
+    background-image: url('images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: fit-content;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 3.1rem;
+    position: absolute;
+}
+
+.navicon {
+    background: var(--color-white);
+    display: block;
+    width: 1.3rem;
+    height: .2rem;
+    position: relative;
+    transition: background .2s ease-out;
+    border-radius: 2rem;
+}
+
+.navicon::after,
+.navicon::before {
+    content: "";
+    display: block;
+    height: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    background: var(--color-white);
+    transition: all .2s ease-out;
+}
+
+.navicon::before {
+    width: 130%;
+    top: .7rem;
+}
+
+.navicon::after {
+    width: 150%;
+    top: -.7rem;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu {
+    display: none;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+.menu__list {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    list-style: none;
+}
+
+.menu__item {
+    width: 100%;
+}
+
+.menu__link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.menu__link:hover,
+.menu__link:active {
+    color: var(--links-action-color);
+}
+
+.menu-btn:checked~.menu {
+    display: block;
+    max-height: 100%;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.menu-btn:checked~.menu .menu__list {
+    display: flex;
+    gap: 1.3rem;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.menu-btn:checked+.menu-icon .navicon {
+    background: transparent;
+}
+
+.menu-btn:checked+.menu-icon .navicon::before {
+    width: 2rem;
+    transform: rotate(-45deg);
+}
+
+.menu-btn:checked+.menu-icon .navicon::after {
+    width: 2rem;
+    transform: rotate(45deg);
+}
+
+.menu-btn:checked+.menu-icon .navicon::after,
+.menu-btn:checked+.menu-icon .navicon::before {
+    top: 0;
+}
+
+.logo-container {
+    flex: 1;
+    height: 31px;
+    margin-top: 30px;
+}
+
+.logo-container img {
+    height: 100%;
+}
+
+.hero div.content {
+    padding-top: 10.6rem;
+    padding-bottom: 8.6rem;
+    color: var(--color-white);
+}
+
+.content-text {
+    margin: 0 auto 2rem;
+}
+
+.content-text h1 {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 4.022rem;
+}
+
+.content-text p {
+    width: 70%;
+    max-width: 355px;
+    margin: 0 auto;
+    font-weight: 700;
+    line-height: 2.011rem;
+}
+
+.content-btn {
+    background-color: var(--links-action-color);
+    cursor: pointer;
+    color: var(--color-white);
+    border-radius: 3rem;
+    border: none;
+    padding: 13px 28px;
+    box-shadow: 0px 0px 55px 0px rgba(0, 0, 0, .8);
+    margin-bottom: 6.5rem;
+    font-weight: 600;
+}
+
+.content-btn:hover,
+.content-btn:active {
+    opacity: var(--button-action-opacity);
+}
+
+.content-text~p {
+    width: 90%;
+    max-width: 637px;
+    margin: 0 auto;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+@media screen and (min-width: 481px) {
+    .header {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .menu-icon,
+    .navicon {
+        display: none;
+    }
+
+    .logo-container {
+        flex: unset;
+        margin: 16px 20px;
+    }
+
+    .menu {
+        display: flex;
+        max-height: 100%;
+        align-items: center;
+        padding-right: 20px;
+    }
+
+    .menu__list {
+        gap: 20px
+    }
+
+    .menu__item {
+        width: unset;
+    }
+
+    .menu__link {
+        padding: 0.5rem 0;
+    }
+
+    .hero div.content {
+        padding-top: 17.1rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .menu__list {
+        gap: 40px
+    }
+
+    .content-text~p {
+        display: block;
+    }
+
+    .hero div.content {
+        padding-bottom: 7.5rem;
+    }
+}
